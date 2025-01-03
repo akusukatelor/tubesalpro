@@ -16,7 +16,7 @@ func tambahDataPasien() {
 	var namaPaket string
 	fmt.Print("Masukkan Nama Pasien: ")
 	utils.HandleLongInput(&pasien.Nama)
-	fmt.Print("Masukkan Jenis Kelamin (L/K): ")
+	fmt.Print("Masukkan Jenis Kelamin (L/P): ")
 	fmt.Scanln(&pasien.JenisKelamin)
 	fmt.Print("Masukkan Umur Pasien: ")
 	fmt.Scanln(&pasien.Umur)
@@ -45,7 +45,7 @@ func editDataPasien() {
 		if data.PasienList[i].Nama == namaPasien {
 			fmt.Print("Masukkan Nama Pasien Baru: ")
 			utils.HandleLongInput(&data.PasienList[i].Nama)
-			fmt.Print("Masukkan Jenis Kelamin Baru (L/K): ")
+			fmt.Print("Masukkan Jenis Kelamin Baru (L/P): ")
 			fmt.Scanln(&data.PasienList[i].JenisKelamin)
 			fmt.Print("Masukkan Umur Baru: ")
 			fmt.Scanln(&data.PasienList[i].Umur)
@@ -77,16 +77,16 @@ func hapusDataPasien() {
 	fmt.Println("Pasien tidak ditemukan.")
 }
 
-func laporanPemasukan(tanggal int) int {
+func laporanPemasukan(tanggal *int) float64 {
 	var total int
 
 	total = 0
 	for i := 0; i < data.JumlahPasien; i++ {
-		if data.PasienList[i].WaktuMCU == tanggal {
+		if data.PasienList[i].WaktuMCU == *tanggal {
 			total += data.PasienList[i].PaketMCU.Harga
 		}
 	}
-	return total
+	return float64(total)
 }
 
 func cariPasienBerdasarkanPaket(jumlahPasien *int) {
@@ -118,7 +118,7 @@ func cariPasienBerdasarkanPaket(jumlahPasien *int) {
 
 func cariPasienBerdasarkanWaktu() {
 	var tanggal int
-	fmt.Print("Masukkan Tanggal MCU (1-31): ")
+	fmt.Print("Masukkan Tanggal MCU (1-31 Januari): ")
 	fmt.Scanln(&tanggal)
 	found := false
 
@@ -322,10 +322,10 @@ func PenggunaRumahSakit() {
 			hapusDataPasien()
 		case 7:
 			var tanggal int
-			fmt.Print("Masukkan Tanggal (1-31) untuk Laporan Pemasukan: ")
+			fmt.Print("Masukkan Tanggal (1-31 Januari) untuk Laporan Pemasukan: ")
 			fmt.Scanln(&tanggal)
 			fmt.Print("Pemasukan pada tanggal ", tanggal, ": ")
-			fmt.Println(laporanPemasukan(tanggal))
+			fmt.Printf("Rp. %.3f\n", laporanPemasukan(&tanggal))
 		case 8:
 			cariPasienBerdasarkanPaket(&data.JumlahPasien)
 		case 9:
