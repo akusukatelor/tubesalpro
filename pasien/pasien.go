@@ -325,7 +325,7 @@ func PenggunaRumahSakit() {
 			fmt.Print("Masukkan Tanggal (1-31) untuk Laporan Pemasukan: ")
 			fmt.Scanln(&tanggal)
 			fmt.Print("Pemasukan pada tanggal ", tanggal, ": ")
-			fmt.Print(laporanPemasukan(tanggal))
+			fmt.Println(laporanPemasukan(tanggal))
 		case 8:
 			cariPasienBerdasarkanPaket(&data.JumlahPasien)
 		case 9:
