@@ -15,7 +15,7 @@ func TambahPaketMCU() {
 	fmt.Print("Masukkan Nama Paket MCU: ")
 	utils.HandleLongInput(&paket.NamaPaket)
 	fmt.Print("Masukkan Harga Paket MCU: (K)")
-	fmt.Scan(&paket.Harga)
+	fmt.Scanln(&paket.Harga)
 	data.PaketMCUList[data.JumlahPaket] = paket
 	data.JumlahPaket++
 	fmt.Println("Paket MCU berhasil ditambahkan!")
@@ -29,7 +29,7 @@ func EditPaketMCU() {
 			fmt.Print("Masukkan Nama Paket MCU Baru: ")
 			utils.HandleLongInput(&data.PaketMCUList[i].NamaPaket)
 			fmt.Print("Masukkan Harga Paket MCU Baru: (K)")
-			fmt.Scan(&data.PaketMCUList[i].Harga)
+			fmt.Scanln(&data.PaketMCUList[i].Harga)
 			fmt.Println("Paket MCU berhasil diubah!")
 			return
 		}

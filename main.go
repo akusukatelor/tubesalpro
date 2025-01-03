@@ -15,7 +15,7 @@ func main() {
 		fmt.Println("2. Masuk sebagai Pengguna Pasien")
 		fmt.Println("3. Keluar")
 		fmt.Print("Pilihan Anda: ")
-		fmt.Scan(&pilihan)
+		fmt.Scanln(&pilihan)
 		switch pilihan {
 		case 1:
 			pasien.PenggunaRumahSakit()

@@ -17,9 +17,9 @@ func tambahDataPasien() {
 	fmt.Print("Masukkan Nama Pasien: ")
 	utils.HandleLongInput(&pasien.Nama)
 	fmt.Print("Masukkan Jenis Kelamin (L/K): ")
-	fmt.Scan(&pasien.JenisKelamin)
+	fmt.Scanln(&pasien.JenisKelamin)
 	fmt.Print("Masukkan Umur Pasien: ")
-	fmt.Scan(&pasien.Umur)
+	fmt.Scanln(&pasien.Umur)
 	fmt.Print("Masukkan Waktu MCU (1-31): ")
 	fmt.Scanln(&pasien.WaktuMCU)
 	fmt.Print("Masukkan Nama Paket MCU yang Dipilih: ")
@@ -46,11 +46,11 @@ func editDataPasien() {
 			fmt.Print("Masukkan Nama Pasien Baru: ")
 			utils.HandleLongInput(&data.PasienList[i].Nama)
 			fmt.Print("Masukkan Jenis Kelamin Baru (L/K): ")
-			fmt.Scan(&data.PasienList[i].JenisKelamin)
+			fmt.Scanln(&data.PasienList[i].JenisKelamin)
 			fmt.Print("Masukkan Umur Baru: ")
-			fmt.Scan(&data.PasienList[i].Umur)
+			fmt.Scanln(&data.PasienList[i].Umur)
 			fmt.Print("Masukkan Waktu MCU Baru (1-31): ")
-			fmt.Scan(&data.PasienList[i].WaktuMCU)
+			fmt.Scanln(&data.PasienList[i].WaktuMCU)
 			fmt.Print("Masukkan Rekap Hasil MCU Baru: ")
 			utils.HandleLongInput(&data.PasienList[i].HasilRekap)
 			fmt.Println("Data pasien berhasil diubah!")
@@ -119,7 +119,7 @@ func cariPasienBerdasarkanPaket(jumlahPasien *int) {
 func cariPasienBerdasarkanWaktu() {
 	var tanggal int
 	fmt.Print("Masukkan Tanggal MCU (1-31): ")
-	fmt.Scan(&tanggal)
+	fmt.Scanln(&tanggal)
 	found := false
 
 	for i := 0; i < data.JumlahPasien; i++ {
@@ -306,7 +306,7 @@ func PenggunaRumahSakit() {
 		fmt.Println("14. Tampil descending berdasarkan paket")
 		fmt.Println("15. keluar program")
 		fmt.Print("Pilih Menu: ")
-		fmt.Scan(&pil)
+		fmt.Scanln(&pil)
 		switch pil {
 		case 1:
 			paket.TambahPaketMCU()
@@ -323,7 +323,7 @@ func PenggunaRumahSakit() {
 		case 7:
 			var tanggal int
 			fmt.Print("Masukkan Tanggal (1-31) untuk Laporan Pemasukan: ")
-			fmt.Scan(&tanggal)
+			fmt.Scanln(&tanggal)
 			fmt.Print("Pemasukan pada tanggal ", tanggal, ": ")
 			fmt.Print(laporanPemasukan(tanggal))
 		case 8:

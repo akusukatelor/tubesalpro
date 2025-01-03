@@ -8,8 +8,11 @@ import (
 )
 
 func HandleLongInput(text *string) {
-	fmt.Scanln()
 	reader := bufio.NewReader(os.Stdin)
-	dataInput, _ := reader.ReadString('\n')
+	dataInput, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("Error brok duar:", err)
+		return
+	}
 	*text = strings.TrimSpace(dataInput)
 }
